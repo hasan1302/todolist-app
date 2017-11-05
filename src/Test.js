@@ -1,20 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
+import {AddNewTask} from './addtask';
+import {ToDoAppList} from './applist';
 
-export class HelloPlanet extends React.Component {
+export class Todo extends React.Component {
+
+    constructor(props) {
+        super();
+    }
+
     render() {
-        console.log(this.props);
-        return <h1>HEY YOU ARE ON {this.props.num + 5}</h1>
+        return 
     }
 }
 
-HelloPlanet.propTypes = {
-    num: PropTypes.number
-};
-
-HelloPlanet.defaultProps = {
-    num: 10
-};
-
-//export default HelloPlanet;
+export default Todo;

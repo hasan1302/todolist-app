@@ -1,0 +1,51 @@
+/*
+
+This is a TODO app.
+When i click on a button - it asks for text and puts it in button label, and it must create an empty button that will ask for text when clicked and create another button etc.
+
+var CONTACTS = [
+    {
+        id: 1,
+        name: "Darth",
+        phoneNumber: "+791735159"
+    },
+    {
+        id: 2,
+        name: "Darth GAGGAGAG",
+        phoneNumber: "+7917351531663169"
+    },
+    {
+        id: 3,
+        name: "AHHH",
+        phoneNumber: "+7917351155159"
+    }
+]
+
+var Contact = createReactClass ({
+    render: function() {
+        return (
+        <li>  
+            <div className = "contact-name"> {this.props.name} </div>
+            <div> {this.props.phoneNumber} </div>
+        </li>
+        );
+    }
+});
+
+var ContactLsist = createReactClass({
+    render: function() {
+        return (
+            <div>
+                <ul>
+                    {
+                        CONTACTS.map(function(el) {
+                            return <Contact key={el.id} name={el.name} phoneNumber={el.phoneNumber} />;
+                        })
+                    }
+                </ul>
+                    <button>HUI</button>
+            </div>
+        );
+    }
+});
+*/
