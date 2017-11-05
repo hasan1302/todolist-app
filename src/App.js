@@ -23,7 +23,7 @@ const styles = {
 class TaskMenu extends Component {
         constructor(props) {
           super(props);
-          this.state = {active: true, myTasks: this.props.tasks}
+          this.state = {active: true, myTasks: this.props.tasks, name: this.props.name}
           this.addNewTask = this.addNewTask.bind(this);
           this.up = this.up.bind(this);
           this.removeTask = this.removeTask.bind(this);
@@ -60,6 +60,7 @@ class TaskMenu extends Component {
 
         render() {//<AddButton /> 
               return <div> 
+                  <h1>{this.state.name}</h1>
                    <button onClick={this.addNewTask}>Click on me to add a new Task! </button>
                    <button style={styles.buttonStyleUp} onClick={this.sortTasks}>SORT</button>
                    <ul>
