@@ -5,9 +5,13 @@
   "dependencies": {
     "create-react-class": "^15.6.2",
     "elemental": "^0.6.1",
+    "express": "^4.16.2",
+    "jade": "^1.11.0",
+    "mongodb": "^2.2.33",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
-    "react-scripts": "1.0.14"
+    "react-scripts": "1.0.14",
+    "kerberos": "^0.0.17"
   },
   "scripts": {
     "start": "react-scripts start",

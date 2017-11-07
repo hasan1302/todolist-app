@@ -1,22 +1,46 @@
 import React, { Component } from 'react';
 
-const styles = {
-    buttonStyleOk: {
-        backgroundColor: "green"
-    },
-    buttonStyleX: {
-        backgroundColor: "red"
-    },
-    buttonStyleUp: {
-        backgroundColor: "cyan"
-    },
-    buttonStyleNormal: {
-        backgroundColor: "#EFFBFB"
-    },
-    buttonStyleDone: {
-        backgroundColor: "gray",
-        textDecorationLine: 'line-through', 
-        textDecorationStyle: 'solid'
+class ToDoList extends Component {
+    constructor(props) {
+        super(props);
+        this.addTaskMenu=this.addTaskMenu.bind(this);
+        this.removeTaskMenu=this.removeTaskMenu.bind(this);
+        this.state = {tsks: [], active: false}
+    }
+
+    addTaskMenu() {
+            let task = prompt('What to write ?', "");
+            task = (task !== null ? task : "")
+            if (task !== "") {
+                this.state.tsks.push(task);
+            } else {
+                alert("Empty Task Name!!!");
+            }
+            this.setState({active : !this.state.active});
+    }
+
+    removeTaskMenu(e) {
+        this.setState(this.state.tsks.splice(e.target.getAttribute("key2"), 1));
+
+    }
+
+
+
+    render(){
+       return (<div>
+        <button style={styles.buttonStyleOk} onClick={this.addTaskMenu}>Add new Task List</button>
+
+        <ul>      
+        {this.state.tsks.map((task, i)=>
+        <li key={i}>
+            {task[i]}   
+             <TaskMenu key3 = {i} tasks={[]} name={task[i]}/>
+             <button key2={i} style={styles.buttonStyleX} onClick={this.removeTaskMenu}>Remove this TaskList ✖</button>     
+        </li>
+        )}
+        </ul>  
+
+        </div>)
     }
 }
 
@@ -60,13 +84,13 @@ class TaskMenu extends Component {
 
         render() {//<AddButton /> 
               return <div> 
-                  <h1>{this.state.name}</h1>
+                  
                    <button onClick={this.addNewTask}>Click on me to add a new Task! </button>
                    <button style={styles.buttonStyleUp} onClick={this.sortTasks}>SORT</button>
                    <ul>
                    {this.state.myTasks.map((task, i)=>
                    <li key={i}>
-                       {this.state.myTasks[i]}
+                       
                         <TaskButton data-index={i} taskText={this.state.myTasks[i]}/>
                         <button data-index2={i} style={styles.buttonStyleX} onClick={this.removeTask}>✖</button>
                         <button data-index3={i} style={styles.buttonStyleUp} onClick={this.up}>▲</button> 
@@ -119,5 +143,25 @@ class TaskButton extends Component {
 }
 
 
+const styles = {
+    buttonStyleOk: {
+        backgroundColor: "green"
+    },
+    buttonStyleX: {
+        backgroundColor: "red"
+    },
+    buttonStyleUp: {
+        backgroundColor: "cyan"
+    },
+    buttonStyleNormal: {
+        backgroundColor: "#EFFBFB"
+    },
+    buttonStyleDone: {
+        backgroundColor: "gray",
+        textDecorationLine: 'line-through', 
+        textDecorationStyle: 'solid'
+    }
+}
 
-  export default TaskMenu;
+  export default ToDoList;
+
